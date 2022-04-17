@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Solution {
+    
+    // utility function ToLowerCase()
+    public String ToLowerCase(String s){
+        String convertedToLowerCase = s.toLowerCase();
+        return convertedToLowerCase;
+    }
+    
+    public String capitalizeTitle(String title) {
+        String lowerCased = "";
+        String word[] = title.split(" ");
+        
+        // loop for string less than or equal to length 2
+        for(int i=0; i < word.length; i++){
+            if(word[i].length() <= 2){
+              lowerCased = ToLowerCase(word[i]); 
+              String a = lowerCased;
+              word[i] = a; 
+            }
+        }
+        
+         // loop for string greater than or equal to length 2
+        for(int i=0; i < word.length; i++){
+            if(word[i].length() > 2){
+                String a = word[i].substring(0, 1).toUpperCase() + word[i].substring(1).toLowerCase();
+                word[i] = a;
+            }  
+        }
+        return Arrays.toString(word).replace("[","").replace("]","").replace(",","");
+    }
+}
