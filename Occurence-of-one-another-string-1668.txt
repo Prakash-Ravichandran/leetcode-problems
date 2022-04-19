@@ -1,0 +1,24 @@
+class Solution {
+    public int maxRepeating(String sequence, String word) {
+        
+        int index = 0;
+        int repeatation = 0;
+        
+        // if given string is empty
+        if( word.length() == 0{
+           return 0;
+        }
+
+        while( true){
+            index = sequence.indexOf(word,index);
+            if(index != -1){
+                 repeatation++;
+                index += word.length();
+             }
+            else{
+                break;
+           }
+        }
+    return repeatation; 
+    }
+}
