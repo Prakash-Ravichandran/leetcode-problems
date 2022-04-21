@@ -1,0 +1,64 @@
+class Solution {
+    public String convertToTitle(int columnNumber) {
+        
+    String columnTitle = "";  
+    int inputNum = columnNumber;  
+    int base = 26;
+    int switchExp = 0;  
+    int convertedNumber = inputNum + 64;  
+
+
+     
+
+    if(inputNum < 0) {
+    System.out.println("Hello");
+    return null;
+    }    
+    else if( inputNum > 0  && inputNum <= 26 ) {    
+        switchExp = 1;
+    }
+
+    else if(inputNum > 26){
+        switchExp = 2;
+        System.out.println(inputNum);
+    }
+     
+  switch(5)
+   {
+   
+   case 1:
+         char cap = (char) (convertedNumber);
+         String s = "" + cap;
+         columnTitle = s;   
+         break; 
+   
+   case 2:
+        int quotient = inputNum / 26;
+        int remainder = inputNum % 26;
+        int exp = quotient;
+        int charNum = (int) Math.pow(base,exp);
+        char cap1 = (char) (quotient + 64);
+        char cap2 = (char) (remainder + 64);  
+        String a = "" + cap1 + cap2;  
+        columnTitle = a;
+        break; 
+  
+   default: 
+        StringBuilder sb = new StringBuilder(); 
+        System.out.println(sb);
+        int n = columnNumber - 1;
+
+        while(n >=0)
+        {
+           // int alphabet = (n%26) + 65;
+            int alphabet = (n - 1) % 26;
+            sb.append((char) (alphabet + 'A'));
+            n = (n/26) - 1;
+
+        }
+
+        columnTitle = sb.reverse().toString();
+        } 
+    return columnTitle;
+    }  
+}
